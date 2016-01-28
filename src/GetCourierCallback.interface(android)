@@ -1,0 +1,9 @@
+package com.example.vanallen.courier_aei;
+
+
+interface GetCourierCallback //h klash auth thewreite diepafh kai oxi klash, apla enhmerwnei thn DatabaseQueries gia to poia methodo tha kaleitai kathe fora
+{                            // me to pou teleiwnei kapoia energeia
+    public abstract void done(Courier returnedCourier);
+
+
+}
