@@ -1,0 +1,64 @@
+package com.example.vanallen.courier_aei;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+
+/** κλαση  μεσω της οποιας σωζουμε τα αρχεία του καθε μεταφορέα τοπικά στο κινητό
+ *
+ */
+
+public class CourierLocalStore {
+
+    public static final String SP_Name = "courierDetails";
+    SharedPreferences courierLocalDatabase;  /* mas epitreptei thn apothikeush arxeiwn sto kinhto */
+
+    public CourierLocalStore(Context context)
+    {
+        courierLocalDatabase = context.getSharedPreferences(SP_Name, 0);
+
+    }
+
+    public void storeCourierData(Courier courier)
+    {
+        SharedPreferences.Editor spEditor = courierLocalDatabase.edit();
+        spEditor.putString("username", courier.username);
+        spEditor.putString("password", courier.password);
+        spEditor.commit();
+
+    }
+
+
+
+    public void setCourierLoggedIn(boolean loggedIn)
+    {
+        SharedPreferences.Editor spEditor = courierLocalDatabase.edit();
+        spEditor.putBoolean("loggedIn", loggedIn);
+        spEditor.commit();
+        /** xrhsimopoieitai gia na mas dixnei pote einai logged in o metaforeas
+         *
+         */
+    }
+
+    public boolean getCourierLoggedIn()
+    {
+        if (courierLocalDatabase.getBoolean("LoggedIn", false)== true)
+        {
+            // an o metaforeas einai mesa sto susthma mas epistrefei true
+
+            return true;
+        }else {
+            //eidalwss mas epistrefei false
+            return false;
+        }
+    }
+
+    public void clearCourierData()
+    {
+        SharedPreferences.Editor spEditor = courierLocalDatabase.edit();
+        spEditor.clear();
+        spEditor.commit();
+        /** me thn methodo auth katharizoume ta arxeia enos metaforea
+         *
+         */
+    }
+}
