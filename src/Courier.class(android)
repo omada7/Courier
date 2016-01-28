@@ -1,0 +1,21 @@
+package com.example.vanallen.courier_aei;
+
+
+public class Courier {
+
+    String  username, password, firstname,lastname,email,address;
+    public int orderId;
+    public Courier(String username, String password, int orderId ,String firstname,String lastname,String email,String address)
+    {
+        this.orderId = orderId;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.address = address;
+        this.username = username;
+        this.password = password;
+
+    }
+
+
+}
